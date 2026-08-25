@@ -1,9 +1,9 @@
 # java-mvn-cicd-eks
 
-#DESCRIPTION:
+# DESCRIPTION:
     This project demonstrates a CI/CD Workflow for maven based Java application. 
     
-#TOOLS used:
+# TOOLS used:
   - GitHub
   - code--> scan-->SonarQube
   - maven
@@ -12,7 +12,7 @@
   - ECR(Elastic Container Registry)
   - Amazon EKS.-->(creates pods) 
     
-#ARCHITECTURE:
+# ARCHITECTURE:
 
                         GitHub
                        |
@@ -41,20 +41,25 @@
                   Application
   
   
-  #MY CONTRIBUTION:
+  # MY CONTRIBUTION:
 
-- Configured Jenkins CI/CD pipeline
-- Configured Maven build and testing
-- Created and configured Amazon EKS cluster
-- Created EKS worker node groups
-- Configured Jenkins access to EKS
-- Created Kubernetes deployment configuration
-- Deployed the application to EKS
-- Troubleshot Kubernetes pod scheduling issues
-- Verified application deployment
+- Configured Jenkins CI/CD pipeline.
+- Configured Maven build and testing.
+- Created and configured Amazon EKS cluster.
+- Created EKS worker node groups.
+- Configured Jenkins access to EKS.
+- Created Kubernetes deployment configuration.
+- Deployed the application to EKS.
+- Troubleshot Kubernetes pod scheduling issues.
+- Verified application deployment.
 
 
-
+  # PROJECT SCREENSHOTS
+   
+         - Jenkins CI/CD Pipeline-(Jenkins-CICD-Pipeline-screenshot.png).
+         - SonarQube Code Analysis-(SonarQube-Screenshot.png).
+         - ECR -(ECR-Screenshot.png).
+         - EKS -(EKS-Screenshot.png).
 
 
 
