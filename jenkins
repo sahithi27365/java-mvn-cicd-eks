@@ -1,0 +1,77 @@
+pipeline {
+    agent any
+    
+    tools {
+        maven 'maven3'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'master',
+                    url: 'https://github.com/azuredevops7/maven-project.git'
+            }
+        }
+        stage('sonarqube') {
+            steps {
+               sh '''
+               mvn sonar:sonar \
+                 -Dsonar.projectKey=maven \
+                 -Dsonar.host.url=http://54.89.15.217:9000 \
+                 -Dsonar.login=df2c05b0383fe42b6f72974440a4d9c04a5786fb
+                  
+                  '''
+                
+                
+               
+            }
+        }
+        stage ('Compile') {
+            steps {
+                sh "mvn compile"
+            }
+        }
+        stage ('Test') {
+            steps {
+                sh "mvn test"
+            }
+        }
+        stage ('Pkg') {
+            steps {
+                sh "mvn package"
+            }
+        }
+        stage ('Install') {
+            steps {
+                sh "mvn install"
+            }
+        }
+        stage ('LoginEcr') {
+            steps {
+                sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 800373800709.dkr.ecr.us-east-1.amazonaws.com'
+
+            }
+        }
+        stage ('ImageBuild') {
+            steps {
+                sh 'docker build -t testsah .'
+
+            }
+        }
+        stage ('Tag') {
+            steps {
+                sh 'docker tag testsah:latest 800373800709.dkr.ecr.us-east-1.amazonaws.com/testsah:latest'
+            }
+        }
+        stage ('Push') {
+            steps {
+                sh 'docker push 800373800709.dkr.ecr.us-east-1.amazonaws.com/testsah:latest'
+            }
+        }
+        stage ('Deploy') {
+            steps {
+                sh 'kubectl apply -f deployment.yml'
+            }
+        }
+    }
+}
