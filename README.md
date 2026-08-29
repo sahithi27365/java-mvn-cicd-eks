@@ -80,19 +80,19 @@ Developer
 
 ### Jenkins CI/CD Pipeline
 
-![Jenkins CI/CD Pipeline](screenshots/Screenshot.jenkins.CICD.PIPELINE.png)
+![Jenkins CI/CD Pipeline](screenshots/jenkins-CICD-PIPELINE-Screenshot.png)
 
 ### SonarQube Analysis
 
-![SonarQube Analysis](screenshots/Screenshot.sonarqube.png)
+![SonarQube Analysis](screenshots/SonarQube-Screenshot.png)
 
 ### Amazon ECR
 
-![Amazon ECR](screenshots/Screenshot.ECR.png)
+![Amazon ECR](screenshots/ECR-Screenshot.png)
 
-### Amazon EKS Nodes
+### Amazon EKS
 
-![Amazon EKS Nodes](screenshots/Screenshot.EKS.Nodes.png)
+![Amazon EKS](screenshots/EKS-Screenshot.png)
 
 ---
 
